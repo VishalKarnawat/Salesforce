@@ -1,0 +1,39 @@
+public class AnimalController {
+    
+    // Define the Wrapper Class inside the same file
+    public class AnimalWrapper {
+        public String animalName {get; set;} // Holds the animal's name
+        public String favoriteFood {get; set;} // Holds the animal's favorite food
+        
+        // Constructor for the wrapper class
+        public AnimalWrapper(String name, String food) {
+            this.animalName = name;
+            this.favoriteFood = food;
+        }
+    }
+    
+    public List<AnimalWrapper> animals {get; set;} // A list to hold our AnimalWrapper instances
+    
+    // Constructor for the AnimalController class to fill the animals list
+    public AnimalController() {
+        animals = new List<AnimalWrapper>();
+        
+        // Populate the list with some animals and their favorite foods
+        animals.add(new AnimalWrapper('Lion', 'Meat'));
+        animals.add(new AnimalWrapper('Panda', 'Bamboo'));
+        animals.add(new AnimalWrapper('Koala', 'Eucalyptus leaves'));
+    }
+    
+    // Method to display the animals and their favorite foods in the debug log
+    public void displayAnimals() {
+        for (AnimalWrapper animal : animals) {
+            System.debug(animal.animalName + ' loves ' + animal.favoriteFood);
+        }
+    }
+}
+
+/* Develper console code
+
+AnimalController controller = new AnimalController();
+controller.displayAnimals();
+*/
